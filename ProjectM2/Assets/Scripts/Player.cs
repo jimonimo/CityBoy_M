@@ -40,10 +40,8 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(2);
         Debug.Log("player has died");
         GameManager.Instance.CountDieLife(lifeNum);
-        SaveRoadManager.Instance.Save();
+        SaveLoadManager.Instance.Save();
     }
-
-
 
     public void OnTriggerEnter2D(Collider2D other)
     {

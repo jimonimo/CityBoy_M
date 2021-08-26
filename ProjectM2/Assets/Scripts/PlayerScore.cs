@@ -6,12 +6,7 @@ public class PlayerScore : MonoBehaviour
 {
     public float timeLeft = 100;
     public int playerScore = 0;
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+ 
     void Update()
     {
         timeLeft -= Time.deltaTime;

@@ -14,18 +14,6 @@ public class UiManager : MonoBehaviour
     
     public GameObject PopUp;
 
-    
-
-    void Start()
-    {
-       
-    }
-
-    
-    void Update()
-    {
-       
-    }
     public void ShowCoinCount(int currentCoin)
     {
         coinCount.text = currentCoin.ToString();
@@ -39,7 +27,6 @@ public class UiManager : MonoBehaviour
         timeLeftCount.text = timeLeft.ToString();
     }
 
-
     public void ChangePauseText()
     {
         if (GameManager.Instance.gamePause)
@@ -50,8 +37,6 @@ public class UiManager : MonoBehaviour
         {
             pauseText.text = "Pause";
         }
-       
-
     }
 
     public void OnOffPopUp(bool on)
@@ -64,9 +49,7 @@ public class UiManager : MonoBehaviour
         popupCoin.text = currentcoin.ToString();
         popupLife.text = currentlife.ToString();
     }
-    
 
-    
 }
 
 

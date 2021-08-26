@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-     
+    #region 싱글톤
     private static GameManager _instance;//실제이름
     public static GameManager Instance//밖에서 쓰이는 이름
     {
@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     {
         _instance = this;//게임매니저는 나다
     }
-
+    #endregion
 
     public Player player;
     public UiManager uiManager;
@@ -37,15 +37,13 @@ public class GameManager : MonoBehaviour
 
     public int score = 0;
     public int monsterCoin;
-    
 
     void Start()
     {
         uiManager.OnOffPopUp(false);
-        SaveRoadManager.Instance.Load();
+        SaveLoadManager.Instance.Load();
         player.SetPlayer();
     }
-
 
     void Update()
     {
@@ -61,9 +59,6 @@ public class GameManager : MonoBehaviour
         }
     }
     
-    
-    
-    
     public void CountCoin(int coin)
     {
         //코인갯수 더해줌
@@ -78,17 +73,12 @@ public class GameManager : MonoBehaviour
         uiManager.ShowLifeCount(currentLife);
     }
 
-    
-
-
     public void CountDieLife(int life)
     {
         Debug.Log("-Life");
         currentLife = currentLife - life;
         uiManager.ShowLifeCount(currentLife);
     }
-
-    
 
     public void GameResult(bool Clear)//게임결과(클리어or데스)시 매개변수 호출하여 해당 결과 보여줌
     {
@@ -102,7 +92,7 @@ public class GameManager : MonoBehaviour
             gameOver = true;
         }
         CaculateScore();//게임오버시 스코어계산
-        SaveRoadManager.Instance.Save();
+        SaveLoadManager.Instance.Save();
         uiManager.OnOffPopUp(true);
         uiManager.ShowPopupText(currentCoin, currentLife);
     }
@@ -121,13 +111,11 @@ public class GameManager : MonoBehaviour
     }
 
     //결과화면나오는 시점에 호출
-
     public void CaculateScore()
     {
         //코인+몬스터점수
         score = currentCoin + monsterCoin;
     }
-
 
 }
 
