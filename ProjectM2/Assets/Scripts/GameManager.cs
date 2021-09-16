@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        //Todo: 과하게 찍히는 로그 안들어와도 될때 막자
         if (GameManager.Instance.gamePause == false)
         {
             timeLeft -= Time.deltaTime;
@@ -55,6 +56,7 @@ public class GameManager : MonoBehaviour
             if (timeLeft < 0.1f)
             {
                 GameResult(false);
+                Debug.Log("죽음");
             }
         }
     }
