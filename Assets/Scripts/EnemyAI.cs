@@ -33,7 +33,7 @@ public class EnemyAI : MonoBehaviour
     void Start()
     {
         enabled = false;
-        Fall();
+        //Fall();
     }
 
     void Update()
@@ -77,7 +77,6 @@ public class EnemyAI : MonoBehaviour
         {
             Vector3 pos = transform.localPosition;
             Vector3 scale = transform.localScale;
-            //localPosition 부모위치기준, 인스펙터트랜스폼 숫자와 일치,부모가 존재하지않으면 월드의 원점기준 
 
             if (state == EnemyState.falling)
             {
